@@ -1,6 +1,22 @@
 
 function App() {
 
+  const links = 
+  [
+    {
+      label : 'facebook' , 
+      icon : <i className="fa-brands fa-facebook-f"></i>
+    } , 
+    {
+      label : 'twitter' , 
+      icon : <i className="fa-brands fa-twitter"></i>
+    } ,
+    {
+      label : 'instagram' , 
+      icon : <i className="fa-brands fa-instagram"></i>
+    }
+  ]
+
   return (
     <>
       <main>
@@ -24,15 +40,16 @@ function App() {
             <div className="flex flex-col item-center ">
 
               <ul className="flex justify-center gap-x-3 mb-7">
-                <li>
-                  <a href="#" className="border border-light-blue-1 text-light-blue-3 flex items-center justify-center rounded-full text-sm w-8 h-8  " ><i class="fa-brands fa-facebook-f"></i></a>
-                </li>
-                <li>
-                  <a href="#" className="border border-light-blue-1 text-light-blue-3 flex items-center justify-center rounded-full text-sm w-8 h-8"><i class="fa-brands fa-twitter"></i></a>
-                </li>
-                <li>
-                  <a href="#" className="border border-light-blue-1 text-light-blue-3 flex items-center justify-center rounded-full text-sm w-8 h-8"><i class="fa-brands fa-instagram"></i></a>
-                </li>
+                {
+                  links.map( (item , i)=> (
+                    <li>
+                    <a href="#" className="border border-light-blue-1 text-light-blue-3 flex items-center justify-center rounded-full text-sm w-8 h-8  " aria-label={item.label} >
+                      {item.icon}
+                      </a>
+                  </li>
+                  ))
+                }
+
               </ul>
 
               <span className="text-light-gray text-center text-[10px] md:text-xs">© Copyright Ping. All rights reserved.</span>
